@@ -1,0 +1,149 @@
+{
+  "continue_with_facebook": "الاستمرار باستخدام فيسبوك",
+  "continue_with_google": "الاستمرار باستخدام جوجل",
+  "continue_with_apple": "الاستمرار باستخدام آبل",
+  "or": "أو",
+  "sign_in_with_pass": "تسجيل الدخول بواسطة كلمة المرور",
+  "nickname": "اللقب",
+  "pick_an_image": "اختيار صورة",
+  "pick_from_gallery": "اختيار من المعرض",
+  "sign_up": "التسجيل",
+  "take_a_photo": "التقاط صورة",
+  "date_of_birth": "تاريخ الميلاد",
+  "fill_your_profile": "ملء الملف الشخصي",
+  "full_name": "الاسم الكامل",
+  "email": "البريد الإلكتروني",
+  "male": "ذكر",
+  "female": "أنثى",
+  "gender": "الجنس",
+  "forgot_password": "نسيت كلمة المرور",
+  "enter_your_email_to_get_verification_code": "أدخل بريدك الإلكتروني للحصول على رمز التحقق",
+  "confirm": "تأكيد",
+  "via_sms": "عبر الرسائل القصيرة:",
+  "mobile": "الجوال",
+  "via_email": "عبر البريد الإلكتروني:",
+  "create_new_password": "إنشاء كلمة مرور جديدة",
+  "confirm_password": "تأكيد كلمة المرور",
+  "otp_code_verification": "تحقق من رمز OTP",
+  "code_has_been_send_to": "تم إرسال الرمز إلى ",
+  "verify": "تحقق",
+  "login_to_your_account": "تسجيل الدخول إلى حسابك",
+  "password": "كلمة المرور",
+  "login": "تسجيل الدخول",
+  "forgot_the_password": "نسيت كلمة المرور؟",
+  "or_continue_with": "أو الاستمرار بواسطة",
+  "get_started": "البدء",
+  "create_new_account": "إنشاء حساب جديد",
+  "i_have_read_and_agree_to_the_nterms_and_conditions": "لقد قرأت ووافقت على الشروط والأحكام",
+  "already_have_an_account": "هل لديك حساب بالفعل؟",
+  "patients": "المرضى",
+  "years_exper": "سنوات الخبرة",
+  "rating": "التقييم",
+  "reviews": "المراجعات",
+  "about_me": "عني",
+  "next_availability": "التوفر التالي",
+  "see_all": "عرض الكل",
+  "book_appointment": "حجز موعد",
+  "good_morning": "صباح الخير 👋",
+  "speciality": "التخصص",
+  "top_doctors": "أفضل الأطباء",
+  "search": "بحث...",
+  "next": "التالي",
+  "select_package": "اختر الباقة",
+  "preferred_way_of_communication": "الطريقة المفضلة للتواصل",
+  "messaging": "الرسائل",
+  "chat_messages_with_doctor": "محادثات الدردشة مع الطبيب",
+  "voice_call": "مكالمة صوتية",
+  "voice_call_with_doctor": "مكالمة صوتية مع الطبيب",
+  "video_call": "مكالمة فيديو",
+  "video_call_with_doctor": "مكالمة فيديو مع الطبيب",
+  "select_duration": "اختر المدة",
+  "sign_in": "تسجيل الدخول",
+  "continue_": "متابعة",
+  "dont_have_an_account": "ليس لديك حساب؟",
+  "completed": "تم",
+  "select_which_contact_details_should_we_use_to_reset_your_password": "حدد معلومات الاتصال التي يجب أن نستخدمها لإعادة تعيين كلمة المرور",
+  "patient_details": "تفاصيل المريض",
+  "your_age": "عمرك",
+  "write_your_problem": "اكتب مشكلتك",
+  "review_summary": "ملخص المراجعة",
+  "date_hour": "التاريخ والوقت",
+  "amount": "المبلغ",
+  "total": "الإجمالي",
+  "change": "تغيير",
+  "package": "الباقة",
+  "duration": "المدة",
+  "cancel_appoinment": "إلغاء الموعد",
+  "upcoming": "القادمة",
+  "reschedule": "إعادة جدولة",
+  "cancelled": "تم الإلغاء",
+  "you_don_t_have_an_appointment_yet": "ليس لديك موعد حتى الآن",
+  "you_don_t_have_a_doctor_s_appointment_scheduled_at_the_moment": "ليس لديك موعد محدد مع الطبيب في الوقت الحالي.",
+  "book_again": "حجز مرة أخرى",
+  "leave_a_review": "اترك تقييمًا",
+  "my_appointment": "موعدي",
+  "type_a_message": "اكتب رسالة...",
+  "session_start": "بدء الجلسة",
+  "session_end": "انتهاء الجلسة",
+  "the_consultation_session_has_ended": "انتهت جلسة الاستشارة.",
+  "recordings_have_been_saved_in_activity": "تم حفظ التسجيلات في النشاط.",
+  "back_to_home": "العودة إلى الصفحة الرئيسية",
+  "how_was_your_experience_with": "كيف كانت تجربتك مع ",
+  "write_your_review": "اكتب مراجعتك",
+  "your_review_here": "مراجعتك هنا...",
+  "would_you_recommend_dr_drake_boeson_to_your_friends": "هل توصي بالدكتور درايك بويسون لأصدقائك؟",
+  "yes": "نعم",
+  "no": "لا",
+  "cancel": "إلغاء",
+  "submit": "إرسال",
+  "review_successful": "تم التقييم بنجاح!",
+  "your_review_has_been_successfully_submitted_thank_you_very_much": "تم تقديم مراجعتك بنجاح، شكرًا جزيلاً!",
+  "ok": "موافق",
+  "phone_number": "رقم الهاتف",
+  "bio": "التعربف الشخصى",
+  "something_went_wrong": "حدث خطا ما",
+  "complete_data": "اكمل البيانات",
+  "minute": "دقيقة",
+  "payments": "الدفع",
+  "select_the_payment_method_you_want_to_use": "اختر طريقه الدفع.",
+  "congratulations": "تهانينا!",
+  "appointment_successfully_booked_you_will_receive_a_notification_and_the_doctor_you_selected_will_contact_you": "تم الحجز بنجاح . سوف يصلك رساله للتاكيد وسوف يقوم الدكتور بالتواصل معك.!",
+  "view_appointment": "فتح المواعيد",
+  "oops_failed": "عذرًا، فشلت العملية!",
+  "try_again": "حاول مجددا",
+  "write_a_review": "اكتب تعليق",
+  "how_was_your_experience_nwith": "كيف كانت تجربتك\nمع",
+  "question_mark": "؟",
+  "recording": "جار التسجيل...",
+  "send_message": "إرسال الرسالة",
+  "are_you_sure_you_want_to_cancel_your_appointment": "هل أنت متأكد أنك تريد إلغاء موعدك؟",
+  "only_50_of_the_funds_will_be_returned_to_your_account": "سيتم إرجاع 50% فقط من الأموال إلى حسابك.",
+  "yes_cancel": "نعم ، إلغاء",
+  "back": "العودة",
+  "appointment_canceled": "تم إلغاء الموعد!",
+  "appointment_successfully_canceled_you_will_receive_a_notification_and_the_doctor_you_selected_will_contact_you": "تم إلغاء الموعد بنجاح. ستتلقى إشعارًا وسيراجعك الطبيب الذي اخترته!",
+  "reasons_for_schedule_change": "أسباب لتغيير الجدول",
+  "write_your_feedback_here": "اكتب تعليقك هنا",
+  "you_must_choose_reason": "يجب أن تختار سببًا",
+  "rescheduling_success": "نجاح إعادة الجدولة!",
+  "appointment_successfully_updated_you_will_receive_a_notification_and_the_doctor_you_selected_will_contact_you": "تم تحديث الموعد بنجاح. ستتلقى إشعارًا وسيراجعك الطبيب الذي اخترته!",
+  "rescheduling": "إعادة جدولة",
+  "scheduled_appointment": "موعد محدد",
+  "patient_information": "معلومات المريض",
+  "age": "العمر",
+  "problem": "المشكلة",
+  "your_package": "حزمتك",
+  "paid": "(تم الدفع)",
+  "profile": "الملف الشخصي",
+  "edit_profile": "تعديل الملف الشخصي",
+  "notification": "الإشعارات",
+  "payment_credit": "الدفع والائتمان",
+  "security": "الأمان",
+  "language": "اللغة",
+  "help_center": "مركز المساعدة",
+  "invite_friends": "دعوة الأصدقاء",
+  "logout": "تسجيل الخروج",
+  "connecting": "جارى التوصيل...",
+  "wating_doctor": "في انتظار انضمام الطبيب",
+  "doctor_joined ": "انضم الطبيب"
+}
