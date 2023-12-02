@@ -16,6 +16,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   CarouselController _carouselController = CarouselController();
   CarouselController _carouselController2 = CarouselController();
   CarouselController _carouselController3 = CarouselController();
+  CarouselController _carouselController4 = CarouselController();
+  CarouselController _carouselController5 = CarouselController();
   // Sample list of images (you can replace it with your own)
   final List<String> _imageUrls = [
     'assets/images/16425862937817.jpg',
@@ -620,12 +622,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             Stack(
               children: [
                 CarouselSlider(
-                  carouselController: _carouselController,
+                  carouselController: _carouselController4,
                   options: CarouselOptions(
                     height: 150.h,
 
                     // autoPlay: true,
-                    enlargeCenterPage: true,
+                    // enlargeCenterPage: true,
                     onPageChanged: (index, reason) {
                       setState(() {
                         _currentIndex = index;
@@ -651,7 +653,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   child: IconButton(
                     icon: const CircleAvatar(child: Icon(Icons.arrow_back_ios)),
                     onPressed: () {
-                      _carouselController.previousPage();
+                      _carouselController4.previousPage();
+                      setState(() {
+                        
+                      });
                     },
                   ),
                 ),
@@ -662,7 +667,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     icon: const CircleAvatar(
                         child: Icon(Icons.arrow_forward_ios)),
                     onPressed: () {
-                      _carouselController.nextPage();
+                      _carouselController4.nextPage();
+                      setState(() {
+                        
+                      });
                     },
                   ),
                 ),
@@ -960,6 +968,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   ),
+                                  const Positioned(
+                                    top:50,
+                                    bottom: 50,
+                                    left: 10,
+                                    right: 10,
+                                    child: Icon(Icons.play_circle_filled_outlined,size: 50,color: Color(0xff660261),))
                                 ]),
                               );
                             }).toList(),
@@ -1319,7 +1333,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   right: 1,
                   left: 1,
                 child: 
-              Container(
+              CarouselSlider(
+                
+                carouselController: _carouselController5,
+                items: ['','',''].map((e) => Container(
                 height: 350.0.h,
                 width: MediaQuery.of(context).size.width-20,
                 margin: EdgeInsets.symmetric(horizontal: 10.0.w),
@@ -1387,7 +1404,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ],
                   ),
                 ),
-              ),
+              )).toList(), options: CarouselOptions(
+                height: 350.0.h,
+                viewportFraction: 1
+              ))
               ),
               Positioned(
                 bottom: 5,
@@ -1428,7 +1448,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     const Expanded(child: SizedBox()),
                     InkWell(
                       onTap: () {
-                        _carouselController2.previousPage();
+                        _carouselController5.previousPage();
                       },
                       child: Container(
                         height: 40.h,
@@ -1447,7 +1467,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ),
                     InkWell(
                       onTap: () {
-                        _carouselController2.nextPage();
+                        _carouselController5.nextPage();
                       },
                       child: Container(
                         height: 40.h,
@@ -1474,7 +1494,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               padding: EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Text("خدماتنا",
                               style: TextStyle(color: Colors.black, fontSize: 15),
@@ -1496,11 +1516,88 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   child: const Text(
                     'منصة هودج للمعالم والزيارات في المملكة العربية السعودية',style: TextStyle(fontSize: 20),))
               ],
-            )
+            ),
+            const SizedBox(height: 15,),
+              Image.asset('assets/images/camel.png',height: 200.h,width:400.w,fit:BoxFit.fill),
+              CarouselSlider(
+                carouselController: _carouselController3,
+                items: ['','',''].map((e) => Stack(
+                children: [
+                  Container(
+                    width:MediaQuery.of(context).size.width-20,
+                    height: 200.h,
+                  ),
+                  Positioned(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                    child: Container(
+                      width:MediaQuery.of(context).size.width-40,
+                      height: 180.h,
+                      decoration: BoxDecoration(
+                        color:Colors.grey[100],
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      child: const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: Text('أول منصة لتنظيم الرحلات باستخدام الذكاء الاصطناعي',style: TextStyle(fontSize: 20),textAlign: TextAlign.center,),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                          right: 0,
+                          top: 75,
+                          child: IconButton(
+                            icon: const CircleAvatar(
+                                child: Icon(Icons.arrow_back_ios)),
+                            onPressed: () {
+                              _carouselController3.previousPage();
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          top: 75,
+                          child: IconButton(
+                            icon: const CircleAvatar(
+                                child: Icon(Icons.arrow_forward_ios)),
+                            onPressed: () {
+                              _carouselController3.nextPage();
+                            },
+                          ),
+                        ),
+                        Positioned(
+                          top:0,
+                          left: 50,
+                          right: 50,
+                          child: CircleAvatar(
+                            radius: 25,
+                            child: Icon(
+                              size: 20,
+                              Icons.comment),
+                          ))
+                ],
+              )).toList(), options: CarouselOptions(
+                              height: 250.h,
+                              // aspectRatio: 16 / 16,
+                              viewportFraction: 1,
+                              // autoPlay: true,
+                              // enlargeCenterPage: true,
+
+                            ),),
                 ],
               ),
             ),
-            
+            // SizedBox(
+            //   height: 10.h,
+            // ),
+            Image.asset('assets/images/big-map.png'),
+            Image.asset('assets/images/visitors.png'),
             SizedBox(
               height: 50.h,
             ),
