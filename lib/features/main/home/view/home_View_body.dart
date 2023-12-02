@@ -1,11 +1,39 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  int _currentIndex = 0;
+  CarouselController _carouselController = CarouselController();
+  CarouselController _carouselController2 = CarouselController();
+  CarouselController _carouselController3 = CarouselController();
+  // Sample list of images (you can replace it with your own)
+  final List<String> _imageUrls = [
+    'assets/images/16425862937817.jpg',
+    'assets/images/ZvKkyJmEKlgRepNa01wkmz4OPxzvwPufs6losmAH.png',
+    'assets/images/Y86kxFQjNB8WeU2pDuFioakuSTprItvmIH6HbUvt.jpg',
+  ];
+
+  final List<String> StringTitleOnImages = [
+    'مسجد سليمان التاريخي',
+    'مسجد الداخلة',
+    'مسجد الصحابي جرير بن عبدالله البجلي',
+  ];
+
+  final List<String> StringLocationOnImages = [
+    'مكه المكرمه, الطائف',
+    'الرياض,المجمعه',
+    'مكه المكرمه, الطائف',
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -491,7 +519,679 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 40.h,
+              height: 20.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('أفضل الوجهات',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  width: 10.w,
+                ),
+                Image.asset(
+                  'assets/images/plane.jpg',
+                  height: 50.h,
+                  width: 50.w,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            const Text(
+              'اكتشف أفضل الوجهات والتجارب في المملكة العربية السعودية',
+              style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            Builder(builder: (context) {
+              return Container(
+                height: 300.0.h,
+                margin: EdgeInsets.symmetric(horizontal: 10.0.w),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0.w),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset(
+                        _imageUrls![_currentIndex],
+                        fit: BoxFit.fill,
+                      ),
+                      Container(
+                        color: Colors.black45,
+                      ),
+                      Positioned(
+                          top: 12.w,
+                          left: 12.w,
+                          child: SizedBox(
+                              child: Image.asset(
+                            'assets/images/map.png',
+                            width: 40.w,
+                            height: 40.w,
+                          ))),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            StringTitleOnImages[_currentIndex],
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                                height: 1.2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(StringLocationOnImages[_currentIndex],
+                                  maxLines: 3,
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey[300])),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              Icon(
+                                Icons.pin_drop,
+                                color: Colors.grey[300],
+                              )
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              );
+            }),
+            SizedBox(
+              height: 5.h,
+            ),
+            Stack(
+              children: [
+                CarouselSlider(
+                  carouselController: _carouselController,
+                  options: CarouselOptions(
+                    height: 150.h,
+
+                    // autoPlay: true,
+                    enlargeCenterPage: true,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    },
+                  ),
+                  items: _imageUrls.map((url) {
+                    return Container(
+                      width: 300.w,
+                      margin: const EdgeInsets.all(5.0),
+                      child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10.0)),
+                        child:
+                            Image.asset(url, fit: BoxFit.cover, width: 1000.0),
+                      ),
+                    );
+                  }).toList(),
+                ),
+                Positioned(
+                  right: 5,
+                  top: 50,
+                  child: IconButton(
+                    icon: const CircleAvatar(child: Icon(Icons.arrow_back_ios)),
+                    onPressed: () {
+                      _carouselController.previousPage();
+                    },
+                  ),
+                ),
+                Positioned(
+                  left: 5,
+                  top: 50,
+                  child: IconButton(
+                    icon: CircleAvatar(child: Icon(Icons.arrow_forward_ios)),
+                    onPressed: () {
+                      _carouselController.nextPage();
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _imageUrls.map((url) {
+                int index = _imageUrls.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _currentIndex == index ? Colors.blue : Colors.grey,
+                  ),
+                );
+              }).toList(),
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            const Text('في السعودية',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text('السحر في كل زاوية',
+                style: TextStyle(fontSize: 15, color: Colors.brown)),
+            SizedBox(
+              height: 3.h,
+            ),
+            SvgPicture.asset('assets/images/inSaudi-vector.svg', width: 100.w),
+            SizedBox(
+              height: 10.h,
+            ),
+            Container(
+              height: 600.0.h,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 500.0.h,
+                    margin: EdgeInsets.symmetric(horizontal: 10.0.w),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0.w),
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          Image.asset(
+                            _imageUrls![_currentIndex],
+                            fit: BoxFit.fill,
+                          ),
+                          Container(
+                            color: Colors.black45,
+                          ),
+                          // Positioned(
+                          //     top: 5.w,
+                          //     left: 12.w,
+                          //     child: SizedBox(
+                          //         child: Image.asset(
+                          //       'assets/images/map.png',
+                          //       width: 40.w,
+                          //       height: 40.w,
+                          //     ))),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Text(
+                                  'أفضل الفعاليات في السعودية',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                      height: 1.2),
+                                ),
+                              ),
+                              const Divider(
+                                color: Colors.white,
+                                height: 2,
+                                endIndent: 20,
+                                indent: 20,
+                              ),
+                              SizedBox(
+                                height: 30.h,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Text(
+                                  'مهرجان الرياض للألعاب',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                      height: 1.2),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Text(
+                                  'مهرجان الرياض للألعاب رجعلكم بتجارب وفعاليات فوق الخيال، حيث تنطلق فعالياته بجانب بوليفارد الرياض سيتي',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w300,
+                                      color: Colors.white,
+                                      height: 1.2),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: RatingBar.builder(
+                                  itemSize: 20,
+                                  initialRating: 5,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemPadding:
+                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star_border,
+                                    color: Colors.amber,
+                                    //  size: 1,
+                                  ),
+                                  onRatingUpdate: (rating) {
+                                    print(rating);
+                                  },
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 2),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.pin_drop,
+                                      color: Colors.grey[300],
+                                    ),
+                                    SizedBox(
+                                      width: 6.w,
+                                    ),
+                                    Text('الرياض، وادي الدوسري',
+                                        maxLines: 3,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey[300])),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 5),
+                                child: Row(
+                                  children: [
+                                    InkWell(
+                                        child: Container(
+                                      height: 40.h,
+                                      width: 140.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(25.w),
+                                          border: Border.all(
+                                              width: .3, color: Colors.black)),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const Text(
+                                            "تفاصيل أكثر",
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15),
+                                          ),
+                                          SizedBox(
+                                            width: 6.w,
+                                          ),
+                                          const Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: Colors.black,
+                                            size: 20,
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    InkWell(
+                                        child: Container(
+                                      height: 40.h,
+                                      width: 140.w,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xff660261),
+                                          borderRadius:
+                                              BorderRadius.circular(25.w),
+                                          border: Border.all(
+                                              width: .3, color: Colors.white)),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const Text(
+                                            "إظهار الكل",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                          SizedBox(
+                                            width: 6.w,
+                                          ),
+                                          const Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: Colors.white,
+                                            size: 20,
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 30,
+                    child: Container(
+                      padding: const EdgeInsets.all(2),
+                      height: 250.h,
+                      width: MediaQuery.of(context).size.width,
+                      child: Stack(
+                        children: [
+                          CarouselSlider(
+                            carouselController: _carouselController,
+                            options: CarouselOptions(
+                              height: 700.h,
+                              aspectRatio: 16 / 16,
+                              viewportFraction: 0.4,
+                              // autoPlay: true,
+                              enlargeCenterPage: true,
+
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentIndex = index;
+                                });
+                              },
+                            ),
+                            items: _imageUrls.map((url) {
+                              return Container(
+                                width: 300.w,
+                                height: 400.h,
+                                margin: const EdgeInsets.all(5.0),
+                                child: Stack(children: [
+                                  ClipRRect(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10.0)),
+                                    child: Image.asset(
+                                      url,
+                                      fit: BoxFit.fill,
+                                      width: 300.w,
+                                      height: 400.w,
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10.0.w),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.5),
+                                      borderRadius: BorderRadius.circular(8.w),
+                                    ),
+                                    child: const Text(
+                                      'مغلق',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ]),
+                              );
+                            }).toList(),
+                          ),
+                          Positioned(
+                            right: 5,
+                            top: 80,
+                            child: IconButton(
+                              icon: const CircleAvatar(
+                                  child: Icon(Icons.arrow_back_ios)),
+                              onPressed: () {
+                                _carouselController.previousPage();
+                              },
+                            ),
+                          ),
+                          Positioned(
+                            left: 5,
+                            top: 80,
+                            child: IconButton(
+                              icon: CircleAvatar(
+                                  child: Icon(Icons.arrow_forward_ios)),
+                              onPressed: () {
+                                _carouselController.nextPage();
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('المطاعم',
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  width: 10.w,
+                ),
+                Image.asset(
+                  'assets/images/restaurant.png',
+                  height: 30.h,
+                  width: 30.w,
+                )
+              ],
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            const Text(
+              "تتمتع المملكة العربية السعودية بمشهد طهي متنوع حيث تقدم العديد من المطاعم التي تلبي الأذواق والتفضيلات المختلفة.",
+              style: TextStyle(fontSize: 15),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            CarouselSlider(
+              carouselController: _carouselController3,
+              options: CarouselOptions(
+                
+                      // height: 300.0.h,
+                      // enlargeCenterPage: true,
+                      viewportFraction: 1,
+                      autoPlay: false,
+                      autoPlayAnimationDuration: const Duration(seconds: 5),
+                    ),
+              items: [
+              '',
+              '',
+              ''
+            ].map((e) {
+              return Container(
+              height: 230.h,
+              // padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(25)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                 Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                                      children: [
+                      const Text(
+                        "مقهى إن لوف للقهوة - الرياض",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        maxLines: 1,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 10.h,),
+
+                      const Row(
+                        children: [
+                          
+                          Icon(Icons.restaurant,color: Color(0xff660261),),
+                          SizedBox(width: 5,),
+                          Text(
+                            "اسيوي.دولي.ايطالي",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+
+                      const Row(
+                        children: [
+                          
+                          Icon(Icons.location_on_outlined,color: Color(0xff660261),),
+                          SizedBox(width: 5,),
+                          Text(
+                            "المدينه",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+
+                      const Row(
+                        children: [
+                          
+                          Icon(Icons.star,color: Colors.amber,),
+                          SizedBox(width: 5,),
+                          Text(
+                            "3",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Expanded(child: SizedBox()),
+                          Text(
+                            "التعليقات (40)",
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10.h,),
+                      Row(
+                        children: [
+                          InkWell(
+                                            child: Container(
+                                          height: 40.h,
+                                          width: 140.w,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xff660261),
+                                              borderRadius:
+                                                  BorderRadius.only(
+                                                    bottomLeft: Radius.circular(20),
+                                                    bottomRight: Radius.circular(20),
+                                                    topRight: Radius.circular(20),
+                                                  ),
+                                              border: Border.all(
+                                                  width: .3, color: Colors.black)),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const Text(
+                                                "تفاصيل أكثر",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15),
+                                              ),
+                                              SizedBox(
+                                                width: 6.w,
+                                              ),
+                                              const Icon(
+                                                Icons.arrow_forward_ios_outlined,
+                                                color: Colors.white,
+                                                size: 20,
+                                              )
+                                            ],
+                                          ),
+                                        )),
+                        ],
+                      ),
+                                      ],
+                                    ),
+                    )),
+                ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25),
+                      topLeft: Radius.circular(25),
+                    ),
+                    child: Image.asset(
+                      'assets/images/img3.jpg',
+                      width: 160.w,
+                      height: 230.h,
+                      fit: BoxFit.fill,
+                    ))
+              ]),
+            );
+            }).toList()),
+            Row(children: [
+                
+            ],),
+            SizedBox(
+              height: 50.h,
             ),
           ],
         ),
