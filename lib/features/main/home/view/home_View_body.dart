@@ -464,7 +464,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'رحلاتنا',
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
@@ -472,7 +472,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                             SizedBox(
                               height: 20.h,
                             ),
-                            Text(
+                            const Text(
                               'يمكن أن يقدم السفر في المملكة العربية السعودية مجموعة متنوعة من التجارب، بدءًا من استكشاف المعالم التاريخية ووصولاً إلى الاستمتاع بالمناظر الطبيعية وتجربة التراث الثقافي الغني للبلاد',
                               textAlign: TextAlign.center,
                               style:
@@ -558,7 +558,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     fit: StackFit.expand,
                     children: [
                       Image.asset(
-                        _imageUrls![_currentIndex],
+                        _imageUrls[_currentIndex],
                         fit: BoxFit.fill,
                       ),
                       Container(
@@ -581,7 +581,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                             StringTitleOnImages[_currentIndex],
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
@@ -659,7 +659,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   left: 5,
                   top: 50,
                   child: IconButton(
-                    icon: CircleAvatar(child: Icon(Icons.arrow_forward_ios)),
+                    icon: const CircleAvatar(
+                        child: Icon(Icons.arrow_forward_ios)),
                     onPressed: () {
                       _carouselController.nextPage();
                     },
@@ -697,7 +698,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             SizedBox(
               height: 10.h,
             ),
-            Container(
+            SizedBox(
               height: 600.0.h,
               child: Stack(
                 children: [
@@ -784,7 +785,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 5),
                                 child: RatingBar.builder(
                                   itemSize: 20,
@@ -793,9 +794,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
                                   itemCount: 5,
-                                  itemPadding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                  itemBuilder: (context, _) => Icon(
+                                  itemPadding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
+                                  itemBuilder: (context, _) => const Icon(
                                     Icons.star_border,
                                     color: Colors.amber,
                                     //  size: 1,
@@ -806,7 +807,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 2),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -829,7 +830,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 5),
                                 child: Row(
                                   children: [
@@ -864,7 +865,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                                         ],
                                       ),
                                     )),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 20,
                                     ),
                                     InkWell(
@@ -978,7 +979,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                             left: 5,
                             top: 80,
                             child: IconButton(
-                              icon: CircleAvatar(
+                              icon: const CircleAvatar(
                                   child: Icon(Icons.arrow_forward_ios)),
                               onPressed: () {
                                 _carouselController.nextPage();
@@ -1023,173 +1024,483 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               height: 10.h,
             ),
             CarouselSlider(
-              carouselController: _carouselController3,
-              options: CarouselOptions(
-                
-                      // height: 300.0.h,
-                      // enlargeCenterPage: true,
-                      viewportFraction: 1,
-                      autoPlay: false,
-                      autoPlayAnimationDuration: const Duration(seconds: 5),
-                    ),
-              items: [
-              '',
-              '',
-              ''
-            ].map((e) {
-              return Container(
-              height: 230.h,
-              // padding: const EdgeInsets.all(10),
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                  borderRadius: BorderRadius.circular(25)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                 Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                                      children: [
-                      const Text(
-                        "مقهى إن لوف للقهوة - الرياض",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        maxLines: 1,
-                        textAlign: TextAlign.start,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: 10.h,),
-
-                      const Row(
+                carouselController: _carouselController2,
+                options: CarouselOptions(
+                  // height: 300.0.h,
+                  // enlargeCenterPage: true,
+                  viewportFraction: 1,
+                  autoPlay: false,
+                  autoPlayAnimationDuration: const Duration(seconds: 5),
+                ),
+                items: ['', '', ''].map((e) {
+                  return Container(
+                    height: 230.h,
+                    // padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          
-                          Icon(Icons.restaurant,color: Color(0xff660261),),
-                          SizedBox(width: 5,),
-                          Text(
-                            "اسيوي.دولي.ايطالي",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-
-                      const Row(
-                        children: [
-                          
-                          Icon(Icons.location_on_outlined,color: Color(0xff660261),),
-                          SizedBox(width: 5,),
-                          Text(
-                            "المدينه",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-
-                      const Row(
-                        children: [
-                          
-                          Icon(Icons.star,color: Colors.amber,),
-                          SizedBox(width: 5,),
-                          Text(
-                            "3",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Expanded(child: SizedBox()),
-                          Text(
-                            "التعليقات (40)",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10.h,),
-                      Row(
-                        children: [
-                          InkWell(
-                                            child: Container(
-                                          height: 40.h,
-                                          width: 140.w,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xff660261),
-                                              borderRadius:
-                                                  BorderRadius.only(
-                                                    bottomLeft: Radius.circular(20),
-                                                    bottomRight: Radius.circular(20),
-                                                    topRight: Radius.circular(20),
-                                                  ),
-                                              border: Border.all(
-                                                  width: .3, color: Colors.black)),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              const Text(
-                                                "تفاصيل أكثر",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 15),
-                                              ),
-                                              SizedBox(
-                                                width: 6.w,
-                                              ),
-                                              const Icon(
-                                                Icons.arrow_forward_ios_outlined,
-                                                color: Colors.white,
-                                                size: 20,
-                                              )
-                                            ],
-                                          ),
-                                        )),
-                        ],
-                      ),
-                                      ],
+                          Expanded(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "مقهى إن لوف للقهوة - الرياض",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  maxLines: 1,
+                                  textAlign: TextAlign.start,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.restaurant,
+                                      color: Color(0xff660261),
                                     ),
-                    )),
-                ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(25),
-                      topLeft: Radius.circular(25),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "اسيوي.دولي.ايطالي",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.location_on_outlined,
+                                      color: Color(0xff660261),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "المدينه",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                                const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "3",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    Expanded(child: SizedBox()),
+                                    Text(
+                                      "التعليقات (40)",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                        child: Container(
+                                      height: 40.h,
+                                      width: 140.w,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xff660261),
+                                          borderRadius: const BorderRadius.only(
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20),
+                                            topRight: Radius.circular(20),
+                                          ),
+                                          border: Border.all(
+                                              width: .3, color: Colors.black)),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const Text(
+                                            "تفاصيل أكثر",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                          SizedBox(
+                                            width: 6.w,
+                                          ),
+                                          const Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            color: Colors.white,
+                                            size: 20,
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )),
+                          ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(25),
+                                topLeft: Radius.circular(25),
+                              ),
+                              child: Image.asset(
+                                'assets/images/img3.jpg',
+                                width: 160.w,
+                                height: 230.h,
+                                fit: BoxFit.fill,
+                              ))
+                        ]),
+                  );
+                }).toList()),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  InkWell(
+                      child: Container(
+                    height: 40.h,
+                    width: 140.w,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff660261),
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                        border: Border.all(width: .3, color: Colors.black)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "اظهار الكل",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                        SizedBox(
+                          width: 6.w,
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Colors.white,
+                          size: 20,
+                        )
+                      ],
                     ),
+                  )),
+                  const Expanded(child: SizedBox()),
+                  InkWell(
+                    onTap: () {
+                      _carouselController2.previousPage();
+                    },
+                    child: Container(
+                      height: 40.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.amber),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Icon(
+                        Icons.keyboard_double_arrow_right,
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      _carouselController2.nextPage();
+                    },
+                    child: Container(
+                      height: 40.h,
+                      width: 40.w,
+                      decoration: BoxDecoration(
+                          // color: Colors.black,
+                          border: Border.all(color: Colors.amber),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Icon(
+                        Icons.keyboard_double_arrow_left,
+                        color: Colors.amber,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Stack(
+              children: [
+                Positioned(
+                  child: Container(
+                    height: 1330.h,
+                    color: Colors.yellow[50],
+                  ),
+                ),
+                Positioned(
+                    top: 5,
+                    left: 15,
                     child: Image.asset(
-                      'assets/images/img3.jpg',
-                      width: 160.w,
-                      height: 230.h,
+                      'assets/images/elezba.png',
+                      width: 400.w,
+                      height: 500.h,
                       fit: BoxFit.fill,
-                    ))
-              ]),
-            );
-            }).toList()),
-            Row(children: [
-                
-            ],),
+                    )),
+                const Positioned(
+                  top: 500,
+                  right: 10,
+                  child: Text(
+                    "العزبة",
+                    style: TextStyle(color: Colors.black, fontSize: 25),
+                  ),
+                ),
+                Positioned(
+                  top: 550,
+                  right: 10,
+                  child: SizedBox(
+                    height: 300.h,
+                    width: MediaQuery.of(context).size.width-10,
+                    child: const SingleChildScrollView(
+                            child: Text(
+                              "يقدم التسوق عبر الإنترنت مجموعة واسعة من الخيارات عبر الفئات الشائعة، مع تصنيف الإلكترونيات والأزياء والألعاب والهوايات باستمرار بين أفضل الخيارات للمستهلكين. ويمكن للمتسوقين بسهولة استكشاف وشراء مجموعة واسعة من المنتجات ضمن هذه الفئات، مما يجعل التجارة الإلكترونية تجربة تسوق مريحة ومتنوعة.",
+                              style: TextStyle(color: Colors.black, fontSize: 18),
+                            maxLines: 8,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.center,
+                            ),
+                          ),
+                  ),
+                ),
+              Positioned(
+                top: 850,
+                  right: 1,
+                  left: 1,
+                child: 
+              Container(
+                height: 350.0.h,
+                width: MediaQuery.of(context).size.width-20,
+                margin: EdgeInsets.symmetric(horizontal: 10.0.w),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0.w),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      Image.asset('assets/images/pic.jpg',
+                        fit: BoxFit.fill,
+                      ),
+                      Container(
+                        color: Colors.black45,
+                      ),
+                      Positioned(
+                          top: 12.w,
+                          left: 12.w,
+                          child: SizedBox(
+                              child: Image.asset(
+                            'assets/images/map.png',
+                            width: 40.w,
+                            height: 40.w,
+                          ))),
+                      Positioned(
+                        bottom: 5,
+                        left: 5,
+                        right: 5,
+                        child: Container(
+                          height: 90.h,
+                          width: MediaQuery.of(context).size.width-30,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                    "هدايا تذكارية نجدية سعودية",
+                                    style: TextStyle(
+                                      
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                    maxLines: 1,
+                                    textAlign: TextAlign.start,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.location_on),
+                                      Text('المملكة العربية السعودية',style: TextStyle(decoration:
+                                                    TextDecoration.underline,),),
+                                      Expanded(child: SizedBox()),
+                                      Icon(Icons.arrow_forward_ios)
+                                    ],
+                                  ),
+                                  
+                              ],
+                            ),
+                          ),
+                        ))
+                    ],
+                  ),
+                ),
+              ),
+              ),
+              Positioned(
+                bottom: 5,
+                left: 5,
+                right: 5,
+                child: 
+              SizedBox(
+                height: 100.h,
+                width: MediaQuery.of(context).size.width-20,
+                child: Row(
+                  children: [
+                    InkWell(
+                        child: Container(
+                      height: 40.h,
+                      width: 140.w,
+                      decoration: BoxDecoration(
+                          color:  Colors.amber,
+                          borderRadius:  BorderRadius.circular(10),
+                          border: Border.all(width: .3, color: Colors.black)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "اظهار الكل",
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                          SizedBox(
+                            width: 6.w,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: Colors.white,
+                            size: 20,
+                          )
+                        ],
+                      ),
+                    )),
+                    const Expanded(child: SizedBox()),
+                    InkWell(
+                      onTap: () {
+                        _carouselController2.previousPage();
+                      },
+                      child: Container(
+                        height: 40.h,
+                        width: 40.w,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.amber),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: const Icon(
+                          Icons.keyboard_double_arrow_right,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.w,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        _carouselController2.nextPage();
+                      },
+                      child: Container(
+                        height: 40.h,
+                        width: 40.w,
+                        decoration: BoxDecoration(
+                            // color: Colors.black,
+                            border: Border.all(color: Colors.amber),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: const Icon(
+                          Icons.keyboard_double_arrow_left,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ))
+              ],
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+             Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text("خدماتنا",
+                              style: TextStyle(color: Colors.black, fontSize: 15),
+                            ),
+                    ],
+                  ),
+                  Row(
+              children: [
+                Text('_ هودج',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
+                      ),
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  height: 80.h,
+                  width: MediaQuery.of(context).size.width-20,
+                  child: const Text(
+                    'منصة هودج للمعالم والزيارات في المملكة العربية السعودية',style: TextStyle(fontSize: 20),))
+              ],
+            )
+                ],
+              ),
+            ),
+            
             SizedBox(
               height: 50.h,
             ),
