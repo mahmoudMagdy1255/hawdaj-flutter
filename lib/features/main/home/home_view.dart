@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hawdaj/features/main/home/view/drawerr.dart';
 import 'package:hawdaj/features/main/home/view/home_View_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,8 +7,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeViewBody(),
-    );
+    return  HomeViewBody();
   }
 }

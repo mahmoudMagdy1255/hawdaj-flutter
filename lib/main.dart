@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hawdaj/features/main/layout/layout_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(EasyLocalization(
       supportedLocales: [Locale('en', 'US'), Locale('ar', 'SA')],
       path: 'assets/translations',
