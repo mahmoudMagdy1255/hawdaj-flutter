@@ -9,7 +9,7 @@ class DrawerWidget extends StatelessWidget {
     return Drawer(
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black87,
+          color: Colors.black.withOpacity(.9),
           image: DecorationImage(
             image: AssetImage('assets/images/drawerBackground.png'),
             fit: BoxFit.fill

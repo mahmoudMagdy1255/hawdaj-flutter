@@ -43,10 +43,17 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   google_fonts: ^4.0.4
   flutter_native_splash: ^2.3.6
+  lottie: ^2.6.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -84,6 +91,7 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
+    - assets/images/animations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

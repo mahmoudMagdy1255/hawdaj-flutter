@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hawdaj/features/main/home/home_view.dart';
 import 'package:hawdaj/features/main/newJourney/new_journy_view.dart';
 import 'package:hawdaj/features/main/places/places_view.dart';
 import 'package:hawdaj/features/main/stores/stores_view.dart';
 import 'package:hawdaj/features/main/zad/zad_view.dart';
+import 'package:lottie/lottie.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class LayoutViewBody extends StatefulWidget {
@@ -37,7 +40,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       hideNavigationBarWhenKeyboardShows: true,
       // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(20.0),
         colorBehindNavBar: Colors.white,
       ),
       popAllScreensOnTapOfSelectedTab: true,
@@ -87,10 +90,11 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(
-          CupertinoIcons.antenna_radiowaves_left_right,
-          color: CupertinoColors.white,
-        ),
+        icon: Lottie.asset('assets/images/animations/camel.json',),
+        // icon: const Icon(
+        //   CupertinoIcons.antenna_radiowaves_left_right,
+        //   color: CupertinoColors.white,
+        // ),
         // title: ("رحلة"),
         activeColorPrimary: const Color(0xff906499),
         inactiveColorPrimary: CupertinoColors.systemGrey,
