@@ -168,7 +168,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 90.0.w),
+                    padding: EdgeInsets.symmetric(horizontal: 80.0.w),
                     child: const Text(
                       'الممكلة العربية السعودية بين الماضي والحاضر',
                       textAlign: TextAlign.center,
@@ -176,7 +176,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ),
                   ),
                   SizedBox(
-                    height: 80.h,
+                    height: 60.h,
                   ),
 
                   ///cur1
@@ -288,6 +288,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     options: CarouselOptions(
                       height: 150.0.h,
                       autoPlay: true,
+
                       autoPlayAnimationDuration: const Duration(seconds: 5),
                     ),
                     items: ['', '', '', ''].map((i) {
@@ -452,7 +453,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/images/background.png'),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   child: Stack(
@@ -1303,17 +1304,17 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       height: 500.h,
                       fit: BoxFit.fill,
                     )),
-                const Positioned(
-                  top: 500,
-                  right: 10,
+                 Positioned(
+                  top: 500.h,
+                  right: 10.w,
                   child: Text(
                     "العزبة",
                     style: TextStyle(color: Colors.black, fontSize: 25),
                   ),
                 ),
                 Positioned(
-                  top: 550,
-                  right: 10,
+                  top: 550.h,
+                  right: 10.w,
                   child: SizedBox(
                     height: 300.h,
                     width: MediaQuery.of(context).size.width-10,
@@ -1329,9 +1330,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   ),
                 ),
               Positioned(
-                top: 850,
-                  right: 1,
-                  left: 1,
+                top: 850.h,
+                  right: 1.w,
+                  left: 1.w,
                 child: 
               CarouselSlider(
                 
@@ -1599,8 +1600,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             Image.asset('assets/images/big-map.png'),
             Image.asset('assets/images/visitors.png'),
             SizedBox(
-              height: 50.h,
+              height: 30.h,
             ),
+            // Container(
+            //   color: Colors.red,
+            //     width: double.infinity,
+            //     height:550.h,child: Image.asset('assets/images/footer.png',fit: BoxFit.fill,)),
+            //
           ],
         ),
       ),

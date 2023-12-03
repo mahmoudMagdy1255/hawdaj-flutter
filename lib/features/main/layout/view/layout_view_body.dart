@@ -61,10 +61,14 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
   List<Widget> _buildScreens() {
     return [
       const HomeView(),
-      const PlacesView(),
-      const NewJourneyView(),
-      const ZadView(),
-      const StoresView(),
+      const Center(child: Text('استكشف عجائب التراث السعودي',style: TextStyle(fontSize: 20),),),
+      const Center(child: Text('إبدأ رحلتك الآن',style: TextStyle(fontSize: 20),),),
+      const Center(child: Text('اين تجدنا',style: TextStyle(fontSize: 20),),),
+      const Center(child: Text('المتاجر الأكثر شيوعًا',style: TextStyle(fontSize: 20),),),
+      // const PlacesView(),
+      // const NewJourneyView(),
+      // const ZadView(),
+      // const StoresView(),
     ];
   }
 
@@ -73,13 +77,13 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.home),
         // title: ("الرئيسية"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: const Color(0xff906499),
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.scope),
         // title: ("الأماكن"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: const Color(0xff906499),
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
@@ -88,13 +92,13 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
           color: CupertinoColors.white,
         ),
         // title: ("رحلة"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: const Color(0xff906499),
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(CupertinoIcons.map_pin_ellipse),
         // title: ("المتاجر"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: const Color(0xff906499),
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
