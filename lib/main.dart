@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hawdaj/features/main/layout/layout_view.dart';
 
+import 'core/utils/app_router.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(EasyLocalization(
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: const Size(428, 926));
-    return MaterialApp(
+    return MaterialApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.tajawalTextTheme(ThemeData.light().textTheme)
       ),
-      home: const LayoutView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
