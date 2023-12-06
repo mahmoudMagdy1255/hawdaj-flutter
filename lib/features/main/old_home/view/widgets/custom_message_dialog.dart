@@ -19,7 +19,7 @@ class CustomMessageDialog extends StatelessWidget {
           height: 300.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/background.png'),
+              image: AssetImage('assets/images/desertBackground.png'),
               fit: BoxFit.fill,
             ),
           ),

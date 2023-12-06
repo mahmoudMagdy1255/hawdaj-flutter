@@ -13,7 +13,7 @@ class CustomMainSlider extends StatelessWidget {
           image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(
-                'assets/images/home.png',
+                'assets/images/homeBackground.png',
               ))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

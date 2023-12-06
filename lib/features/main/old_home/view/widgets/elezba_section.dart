@@ -79,7 +79,7 @@ class _ElezbaSectionState extends State<ElezbaSection> {
                       fit: StackFit.expand,
                       children: [
                         Image.asset(
-                          'assets/images/pic.jpg',
+                          'assets/images/gun.jpg',
                           fit: BoxFit.fill,
                         ),
                         Container(

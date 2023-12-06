@@ -13,14 +13,14 @@ import 'widgets/custom_message_dialog.dart';
 import 'widgets/elezba_section.dart';
 import 'widgets/footer_section.dart';
 
-class HomeViewBody extends StatefulWidget {
-  const HomeViewBody({super.key});
+class OldHomeViewBody extends StatefulWidget {
+  const OldHomeViewBody({super.key});
 
   @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
+  State<OldHomeViewBody> createState() => _OldHomeViewBodyState();
 }
 
-class _HomeViewBodyState extends State<HomeViewBody> {
+class _OldHomeViewBodyState extends State<OldHomeViewBody> {
   int _currentIndex = 0;
   CarouselController _carouselController = CarouselController();
   CarouselController _carouselController2 = CarouselController();
@@ -29,9 +29,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   // Sample list of images (you can replace it with your own)
   final List<String> _imageUrls = [
-    'assets/images/16425862937817.jpg',
-    'assets/images/ZvKkyJmEKlgRepNa01wkmz4OPxzvwPufs6losmAH.png',
-    'assets/images/Y86kxFQjNB8WeU2pDuFioakuSTprItvmIH6HbUvt.jpg',
+    'assets/images/suleimanMosque.jpg',
+    'assets/images/eldakhlaMosque.png',
+    'assets/images/gareerMosque.jpg',
   ];
 
   final List<String> StringTitleOnImages = [

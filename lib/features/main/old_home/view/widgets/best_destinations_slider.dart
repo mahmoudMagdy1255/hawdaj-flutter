@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hawdaj/features/main/home/model/destinationModel.dart';
+
+import '../../model/destinationModel.dart';
 
 class BestDestinationsSlider extends StatefulWidget {
   const BestDestinationsSlider({super.key});
@@ -12,7 +13,7 @@ class BestDestinationsSlider extends StatefulWidget {
 
 class _BestDestinationsSliderState extends State<BestDestinationsSlider> {
   int _currentIndex = 0;
-  List<Destination> list = Destination.destinationList;
+  List<OldDestination> list = OldDestination.destinationList;
   CarouselController _carouselController4 = CarouselController();
 
   @override

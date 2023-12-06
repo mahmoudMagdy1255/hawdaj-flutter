@@ -16,7 +16,7 @@ class BestEventsSlider extends StatefulWidget {
 
 class _BestEventsSliderState extends State<BestEventsSlider> {
   int _currentIndex = 0;
-  List<Destination> list = Destination.destinationList;
+  List<OldDestination> list = OldDestination.destinationList;
   CarouselController _carouselController = CarouselController();
 
   @override

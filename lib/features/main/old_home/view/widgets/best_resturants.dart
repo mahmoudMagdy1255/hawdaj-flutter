@@ -13,7 +13,7 @@ class BestRestaurants extends StatefulWidget {
 }
 
 class _BestRestaurantsState extends State<BestRestaurants> {
-  List<Destination> list = Destination.destinationList;
+  List<OldDestination> list = OldDestination.destinationList;
   CarouselController _carouselController2 = CarouselController();
 
   @override
@@ -217,7 +217,7 @@ class _BestRestaurantsState extends State<BestRestaurants> {
                             topLeft: Radius.circular(25.w),
                           ),
                           child: Image.asset(
-                            'assets/images/img3.jpg',
+                            'assets/images/restaurant.jpg',
                             width: 160.w,
                             height: 230.h,
                             fit: BoxFit.fill,

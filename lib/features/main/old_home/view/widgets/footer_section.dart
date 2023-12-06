@@ -10,7 +10,7 @@ class FooterSection extends StatelessWidget {
       height: 700.h,
       decoration:  BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background.png'),
+          image: AssetImage('assets/images/desertBackground.png'),
           fit: BoxFit.fill,
         ),
         borderRadius: BorderRadius.only(

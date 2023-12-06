@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hawdaj/features/main/home/home_view.dart';
+import 'package:hawdaj/features/main/home/view/home_view.dart';
 import 'package:hawdaj/features/main/newJourney/new_journy_view.dart';
 import 'package:hawdaj/features/main/places/places_view.dart';
 import 'package:hawdaj/features/main/stores/stores_view.dart';
