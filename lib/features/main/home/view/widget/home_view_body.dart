@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:hawdaj/core/utils/styles.dart';
 import 'package:hawdaj/features/main/home/view/widget/head_section.dart';
 import 'package:hawdaj/features/main/home/view/widget/title_section.dart';
@@ -25,6 +27,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    print('------------>>Reduild');
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -85,16 +88,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       CarouselSlider(
                           carouselController: _carouselController,
                           options: CarouselOptions(
-                            onScrolled: (h){
-                              setState(() {
-                                // _carouselController.nextPage();
-                                if(currentIndex<list.length-1){
-                                  currentIndex++;
-                                }else{
-                                  currentIndex==0;
-                                }
-                              });
-                            },
+                            // onScrolled: (h) {
+                            //   setState(() {
+                            //     // _carouselController.nextPage();
+                            //     if (currentIndex < list.length - 1) {
+                            //       currentIndex++;
+                            //     } else {
+                            //       currentIndex == 0;
+                            //     }
+                            //   });
+                            // },
                             // onPageChanged: (_,changeReason){
                             //   setState(() {
                             //     _carouselController.nextPage();
@@ -193,32 +196,47 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           TitleSection(title: 'الكل'),
 
           ///
-          GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 2,
-            mainAxisSpacing: 20.w,
-            crossAxisSpacing: 20.w,
-            childAspectRatio: .75.w,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            // itemBuilder: (context, index) {
-            //   var model = state.moodReportModel.data!
-            //       .reports![index];
-            //   return buildMoodReport(index, model);
-            // },
-            children: [
-              for (int i = 0; i < list.length; i++)
-                HomeGridItem(
-                  item: list[i],
-                )
-            ],
+          Container(
+            width: double.infinity,
+            child: SingleChildScrollView(
+              child: MasonryGridView.count(
+                  itemCount: list.length,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16.w,
+                  crossAxisSpacing: 16.w,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  itemBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                        height: (index % 3 + 1) * 100.0, // Varying heights
+                        width: (index % 2 + 1) * 100.0, // V
+                        child: HomeGridItem(item: list[index]));
+                  }),
+            ),
           ),
-
-          SizedBox(
-            height: 500.h,
-          ),
+          SizedBox(height: 100.h,)
         ],
       ),
     );
+  }
+
+  List<Widget> _buildGridItems() {
+    return List.generate(10, (index) {
+      final itemHeight = (index % 3 + 1) * 100.0; // Varying heights
+      final itemWidth = (index % 2 + 1) * 100.0; // Varying widths
+
+      return Container(
+        color: Colors.blue,
+        height: itemHeight,
+        width: itemWidth,
+        child: Center(
+          child: Text(
+            'Item $index',
+            style: TextStyle(color: Colors.white, fontSize: 20.0),
+          ),
+        ),
+      );
+    });
   }
 }

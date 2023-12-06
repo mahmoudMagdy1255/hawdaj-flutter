@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:hawdaj/features/main/home/data/model/Destination.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class HomeGridItem extends StatelessWidget {
-  HomeGridItem({super.key, required this.item});
+  HomeGridItem({Key? key, required this.item}) : super(key: key);
 
-  Destination item;
+  final Destination item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.w),
+        borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
           image: AssetImage(item.image),
           fit: BoxFit.fill,
@@ -31,18 +32,21 @@ class HomeGridItem extends StatelessWidget {
                     Icons.more_vert,
                     color: Colors.white,
                   ),
-                )
+                ),
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10.0.w),
+            padding: EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   item.name,
-                  style: Styles.textStyle16.copyWith(color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
                 Row(
                   children: [
@@ -51,17 +55,21 @@ class HomeGridItem extends StatelessWidget {
                       color: Colors.grey[50],
                       size: 18,
                     ),
-                    Expanded(
-                        child: Text(
-                      item.location,
-                      style:
-                          Styles.textStyle10.copyWith(color: Colors.grey[50]),
-                    ))
+                    Flexible(
+                      child: Text(
+                        item.location,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: Colors.grey[50],
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
