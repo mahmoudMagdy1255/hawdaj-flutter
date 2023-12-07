@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hawdaj/core/utils/app_router.dart';
 import 'package:hawdaj/core/utils/styles.dart';
 import 'package:hawdaj/features/main/home/view/widget/head_section.dart';
 import 'package:hawdaj/features/main/home/view/widget/title_section.dart';
@@ -31,117 +33,122 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
-            height: 880.h,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(list[currentIndex].image),
-                fit: BoxFit.fill,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.0.w),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 60.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
-                          Icon(Icons.search, color: Colors.white),
-                        ],
-                      ),
-                    ],
-                  ),
+          InkWell(
+            onTap: (){
+              GoRouter.of(context).go(AppRouter.kDestinationDetails);
+            },
+            child: Container(
+              height: 880.h,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(list[currentIndex].image),
+                  fit: BoxFit.fill,
                 ),
-                Container(
-                  padding: EdgeInsets.all(20.w),
-                  margin: EdgeInsets.only(
-                      right: 20.w, left: 20.0.w, bottom: 80.h),
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(.5),
-                      borderRadius: BorderRadius.circular(24.w)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        list[currentIndex].name,
-                        style: Styles.textStyle24,
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Text('تقييم'),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      Text(list[currentIndex].description * 10),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      CarouselSlider(
-                        carouselController: _carouselController,
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          autoPlayAnimationDuration:
-                              const Duration(seconds: 3),
-                          autoPlayInterval: const Duration(seconds: 6),
-                          enlargeCenterPage: true,
-                          onPageChanged: (index, reason) {
-                            setState(() {
-                            // _carouselController.nextPage();
-                              currentIndex = index;
-                              print('------>$index');
-                            });
-                          },
-                          viewportFraction: .4,
-                          height: 130.h,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.0.w),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 60.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ),
+                            Icon(Icons.search, color: Colors.white),
+                          ],
                         ),
-                        items: list.map((e) {
-                          return Container(
-                            width: 130.w,
-                            // child: Image.asset(e.image,fit: BoxFit.fill,),
-                            child: Image.asset(e.image,fit: BoxFit.fill,),
-                          );
-                        }).toList(),
-                      )
-                      // CarouselSlider(
-                      //     carouselController: _carouselController,
-                      //     options: CarouselOptions(
-                      //       onPageChanged: (index, changeReason) {
-                      //         setState(() {
-                      //           currentIndex = index;
-                      //           print('----->$index');
-                      //         });
-                      //       },
-                      //       autoPlayAnimationDuration: Duration(seconds: 5),
-                      //       autoPlayInterval: Duration(seconds: 5),
-                      //       aspectRatio: 16 / 16,
-                      //       viewportFraction: .4,
-                      //       autoPlay: true,
-                      //       // enlargeCenterPage: true,
-                      //     ),
-                      //     items: list.map((e) => Container(
-                      //             // margin: EdgeInsets.only(left: 10.w),
-                      //             // height: 100.h,
-                      //             // width: 100.w,
-                      //             decoration: BoxDecoration(
-                      //                 image: DecorationImage(image: AssetImage(e.image)),
-                      //                 borderRadius:
-                      //                     BorderRadius.circular(12.w)),
-                      //           ),
-                      //         )
-                      //         .toList())
-                    ],
+                      ],
+                    ),
                   ),
-                )
-              ],
+                  Container(
+                    padding: EdgeInsets.all(20.w),
+                    margin: EdgeInsets.only(
+                        right: 20.w, left: 20.0.w, bottom: 80.h),
+                    decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(.5),
+                        borderRadius: BorderRadius.circular(24.w)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          list[currentIndex].name,
+                          style: Styles.textStyle24,
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text('تقييم'),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(list[currentIndex].description * 10),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        CarouselSlider(
+                          carouselController: _carouselController,
+                          options: CarouselOptions(
+                            autoPlay: true,
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 3),
+                            autoPlayInterval: const Duration(seconds: 6),
+                            enlargeCenterPage: true,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                              // _carouselController.nextPage();
+                                currentIndex = index;
+                                print('------>$index');
+                              });
+                            },
+                            viewportFraction: .4,
+                            height: 130.h,
+                          ),
+                          items: list.map((e) {
+                            return Container(
+                              width: 130.w,
+                              // child: Image.asset(e.image,fit: BoxFit.fill,),
+                              child: Image.asset(e.image,fit: BoxFit.fill,),
+                            );
+                          }).toList(),
+                        )
+                        // CarouselSlider(
+                        //     carouselController: _carouselController,
+                        //     options: CarouselOptions(
+                        //       onPageChanged: (index, changeReason) {
+                        //         setState(() {
+                        //           currentIndex = index;
+                        //           print('----->$index');
+                        //         });
+                        //       },
+                        //       autoPlayAnimationDuration: Duration(seconds: 5),
+                        //       autoPlayInterval: Duration(seconds: 5),
+                        //       aspectRatio: 16 / 16,
+                        //       viewportFraction: .4,
+                        //       autoPlay: true,
+                        //       // enlargeCenterPage: true,
+                        //     ),
+                        //     items: list.map((e) => Container(
+                        //             // margin: EdgeInsets.only(left: 10.w),
+                        //             // height: 100.h,
+                        //             // width: 100.w,
+                        //             decoration: BoxDecoration(
+                        //                 image: DecorationImage(image: AssetImage(e.image)),
+                        //                 borderRadius:
+                        //                     BorderRadius.circular(12.w)),
+                        //           ),
+                        //         )
+                        //         .toList())
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           SizedBox(
