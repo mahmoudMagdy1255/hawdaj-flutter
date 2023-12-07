@@ -19,19 +19,19 @@ class ColorsData {
   static const Color error_red = Color(0xFFD72F5A);
   static const Color warring = Color(0xFFE88733);
 
-  // static const MaterialColor myPrimaryColor = MaterialColor(
-  //   0xFF284A6E,
-  //   <int, Color>{
-  //     50: Color(0xD284A6E),
-  //     100: Color(0x1A284A6E),
-  //     200: Color(0x33284A6E),
-  //     300: Color(0x4D284A6E),
-  //     400: Color(0x66284A6E),
-  //     500: Color(0x80284A6E),
-  //     600: Color(0x99284A6E),
-  //     700: Color(0xB3284A6E),
-  //     800: Color(0xCC284A6E),
-  //     900: Color(0xE6284A6E),
-  //   },
-  // );
+  static const MaterialColor myPrimaryColor = MaterialColor(
+    0xFF6C0A6B,
+    <int, Color>{
+      50: Color(0xFFFCE9F3),
+      100: Color(0xFFF7D3E7),
+      200: Color(0xFFEFABD5),
+      300: Color(0xFFE682C2),
+      400: Color(0xFFE165B4),
+      500: Color(0xFFD94BA7),
+      600: Color(0xFFD0429D),
+      700: Color(0xFFC93792),
+      800: Color(0xFFC02D87),
+      900: Color(0xFFB31775),
+    },
+  );
 }
