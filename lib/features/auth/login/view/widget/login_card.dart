@@ -10,8 +10,8 @@ import '../../../../../core/widgets/custom_button_new.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 
 class LoginCard extends StatelessWidget {
-  const LoginCard({super.key});
-
+   LoginCard({super.key,required this.onPressed});
+  Function()onPressed;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -79,7 +79,7 @@ class LoginCard extends StatelessWidget {
                   // color: ColorsData.myPrimaryColor[200],
                 ),
                 SizedBox(width: 16.w),
-                Flexible(child: CustomButtonNew(txt: 'تسجيل'))
+                Flexible(child: CustomButtonNew(txt: 'تسجيل',onPressed: onPressed,))
               ],
             ),
           ],

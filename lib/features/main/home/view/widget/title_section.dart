@@ -13,7 +13,7 @@ class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? EdgeInsets.all(20.0.w),
+      padding: padding ?? EdgeInsets.only(top: 20.0.w,right: 20.w,left: 20,bottom: 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

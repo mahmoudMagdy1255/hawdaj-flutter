@@ -4,11 +4,14 @@ import 'package:flutter_flip_card/flutter_flip_card.dart';
 import 'package:flutter_flip_card/modal/flip_side.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hawdaj/core/utils/app_router.dart';
 import 'package:hawdaj/core/utils/assets.dart';
 import 'package:hawdaj/core/utils/colors.dart';
 import 'package:hawdaj/core/utils/styles.dart';
 import 'package:hawdaj/core/widgets/custom_button_new.dart';
 import 'package:hawdaj/features/auth/login/view/widget/login_card.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../../core/models/custom_text_feild_model.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
@@ -31,6 +34,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         child: Stack(
       fit: StackFit.expand,
       children: [
+        Lottie.asset(Assets.login_bg, fit: BoxFit.fill),
         SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,8 +59,16 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   //When enabled, the card will flip automatically when touched.
                   axis: FlipAxis.vertical,
                   controller: controller,
-                  frontWidget: LoginCard(),
-                  backWidget: SignUpCard()),
+                  frontWidget: LoginCard(
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.kHomeLayOut);
+                    },
+                  ),
+                  backWidget: SignUpCard(
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.kHomeLayOut);
+                    },
+                  )),
               SizedBox(
                 height: 50.h,
               ),

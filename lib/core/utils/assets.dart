@@ -22,5 +22,6 @@ class Assets{
   static const passwordEnable='assets/images/password-enable.svg';
   static const passwordDisable='assets/images/password-disabled.svg';
   static const facbookIcon='assets/images/facbook-icon.svg';
+  static const login_bg='assets/images/animations/login-bg.json';
 
 }

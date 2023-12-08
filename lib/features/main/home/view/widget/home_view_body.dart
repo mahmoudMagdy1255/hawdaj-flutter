@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -9,6 +12,7 @@ import 'package:hawdaj/core/utils/styles.dart';
 import 'package:hawdaj/features/main/home/view/widget/head_section.dart';
 import 'package:hawdaj/features/main/home/view/widget/title_section.dart';
 
+import '../../../../../core/utils/colors.dart';
 import '../../data/model/Destination.dart';
 import 'distance_item.dart';
 import 'event_item.dart';
@@ -34,8 +38,8 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       child: Column(
         children: [
           InkWell(
-            onTap: (){
-              GoRouter.of(context).go(AppRouter.kDestinationDetails);
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kDestinationDetails);
             },
             child: Container(
               height: 880.h,
@@ -67,84 +71,96 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(20.w),
                     margin: EdgeInsets.only(
                         right: 20.w, left: 20.0.w, bottom: 80.h),
-                    decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(.5),
-                        borderRadius: BorderRadius.circular(24.w)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          list[currentIndex].name,
-                          style: Styles.textStyle24,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(24.w),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 5,
+                          sigmaY: 5,
                         ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Text('تقييم'),
-                        SizedBox(
-                          height: 30.h,
-                        ),
-                        Text(list[currentIndex].description * 10),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        CarouselSlider(
-                          carouselController: _carouselController,
-                          options: CarouselOptions(
-                            autoPlay: true,
-                            autoPlayAnimationDuration:
-                                const Duration(seconds: 3),
-                            autoPlayInterval: const Duration(seconds: 6),
-                            enlargeCenterPage: true,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                              // _carouselController.nextPage();
-                                currentIndex = index;
-                                print('------>$index');
-                              });
-                            },
-                            viewportFraction: .4,
-                            height: 130.h,
+                        child: Container(
+                          padding: EdgeInsets.all(20.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                list[currentIndex].name,
+                                style: Styles.textStyle24
+                                    .copyWith(color: ColorsData.greyscale50),
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  RatingBar.builder(
+                                    itemSize: 20.w,
+                                    minRating: 1,
+                                    itemCount: 5,
+                                    initialRating: 4,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    ignoreGestures: true,
+                                    itemPadding:
+                                        EdgeInsets.symmetric(horizontal: 1.0.w),
+                                    itemBuilder: (context, _) => const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {},
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Text(
+                                    '(200)',
+                                    style: Styles.textStyle14.copyWith(
+                                      color: ColorsData.greyscale50,
+                                      height: 1,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 20.h),
+                              Text(
+                                list[currentIndex].description,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: Styles.textStyle14.copyWith(
+                                    color: ColorsData.greyscale50, height: 1.2),
+                              ),
+                              SizedBox(height: 20.h),
+                              CarouselSlider(
+                                carouselController: _carouselController,
+                                options: CarouselOptions(
+                                  autoPlay: true,
+                                  autoPlayAnimationDuration:
+                                      const Duration(seconds: 3),
+                                  autoPlayInterval: const Duration(seconds: 6),
+                                  enlargeCenterPage: true,
+                                  onPageChanged: (index, reason) {
+                                    setState(() {
+                                      currentIndex = index;
+                                    });
+                                  },
+                                  viewportFraction: .4,
+                                  height: 130.h,
+                                ),
+                                items: list.map((e) {
+                                  return Container(
+                                    width: 130.w,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(e.image),
+                                          fit: BoxFit.fill,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.w)),
+                                  );
+                                }).toList(),
+                              ),
+                            ],
                           ),
-                          items: list.map((e) {
-                            return Container(
-                              width: 130.w,
-                              // child: Image.asset(e.image,fit: BoxFit.fill,),
-                              child: Image.asset(e.image,fit: BoxFit.fill,),
-                            );
-                          }).toList(),
-                        )
-                        // CarouselSlider(
-                        //     carouselController: _carouselController,
-                        //     options: CarouselOptions(
-                        //       onPageChanged: (index, changeReason) {
-                        //         setState(() {
-                        //           currentIndex = index;
-                        //           print('----->$index');
-                        //         });
-                        //       },
-                        //       autoPlayAnimationDuration: Duration(seconds: 5),
-                        //       autoPlayInterval: Duration(seconds: 5),
-                        //       aspectRatio: 16 / 16,
-                        //       viewportFraction: .4,
-                        //       autoPlay: true,
-                        //       // enlargeCenterPage: true,
-                        //     ),
-                        //     items: list.map((e) => Container(
-                        //             // margin: EdgeInsets.only(left: 10.w),
-                        //             // height: 100.h,
-                        //             // width: 100.w,
-                        //             decoration: BoxDecoration(
-                        //                 image: DecorationImage(image: AssetImage(e.image)),
-                        //                 borderRadius:
-                        //                     BorderRadius.circular(12.w)),
-                        //           ),
-                        //         )
-                        //         .toList())
-                      ],
+                        ),
+                      ),
                     ),
                   )
                 ],
@@ -152,10 +168,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             ),
           ),
           SizedBox(
-            height: 40.h,
+            height: 20.h,
           ),
           TitleSection(title: 'الأماكن'),
-
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
@@ -165,7 +180,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   for (int i = 0; i < 10; i++)
                     Padding(
                       padding: EdgeInsets.only(left: 16.0.w),
-                      child: DistanceItem(),
+                      child:InkWell(
+                          onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
+                          child: DistanceItem()),
                     ),
                 ],
               ),
@@ -186,7 +203,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             items: ['', '', '', ''].map((i) {
               return Builder(
                 builder: (BuildContext context) {
-                  return EventItem();
+                  return InkWell(
+                      onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
+                      child: EventItem());
                 },
               );
             }).toList(),
@@ -219,7 +238,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             width: double.infinity,
             child: SingleChildScrollView(
               child: MasonryGridView.count(
-                  itemCount: list.length,
+                  itemCount: list.length<8?list.length:8,
                   crossAxisCount: 2,
                   mainAxisSpacing: 16.w,
                   crossAxisSpacing: 16.w,
@@ -227,10 +246,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   itemBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                        height: (index % 3 + 1) * 100.0, // Varying heights
-                        width: (index % 2 + 1) * 100.0, // V
-                        child: HomeGridItem(item: list[index]));
+                    return InkWell(
+                      onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
+                      child: SizedBox(
+                          height: (index % 3 + 1) * 100.0, // Varying heights
+                          width: (index % 2 + 1) * 100.0, // V
+                          child: HomeGridItem(item: list[index])),
+                    );
                   }),
             ),
           ),

@@ -22,7 +22,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => LoginView(),
+        builder: (context, state) => OnBoardingView(),
       ),
       GoRoute(
         path: kLoginView,

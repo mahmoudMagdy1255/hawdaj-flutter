@@ -49,14 +49,14 @@ class _DestinationDetailsViewBodyState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CircleAvatar(
-                      backgroundColor: ColorsData.greyscale400.withOpacity(.7),
+                      backgroundColor: ColorsData.greyscale400.withOpacity(.5),
                       child: Icon(
                         Icons.arrow_back,
                         color: ColorsData.greyscale50,
                       ),
                     ),
                     CircleAvatar(
-                      backgroundColor: ColorsData.greyscale400.withOpacity(.7),
+                      backgroundColor: ColorsData.greyscale400.withOpacity(.5),
                       child: Icon(
                         Icons.favorite_border,
                         color: ColorsData.greyscale50,
@@ -86,7 +86,7 @@ class _DestinationDetailsViewBodyState
                             children: [
                               Container(
                                 height: 1.h,
-                                width: 200.w,
+                                width: 150.w,
                                 margin: EdgeInsets.only(top: 12.h, bottom: 36.h),
                                 color: ColorsData.greyscale400,
                               )
@@ -107,14 +107,19 @@ class _DestinationDetailsViewBodyState
                               ),
                               RichText(
                                 text: TextSpan(
-                                  text: '150 ر.س/ ',
+                                  text: '150',
                                   style: Styles.textStyle18.copyWith(
                                       color: ColorsData.primary500,
                                       fontWeight: FontWeight.bold),
                                   children: <TextSpan>[
                                     TextSpan(
+                                      text: 'ر.س/ ',
+                                      style: Styles.textStyle12
+                                          .copyWith(color: ColorsData.primary500),
+                                    ),
+                                    TextSpan(
                                       text: 'فرد',
-                                      style: Styles.textStyle14
+                                      style: Styles.textStyle12
                                           .copyWith(color: ColorsData.greyscale700),
                                     ),
                                   ],
@@ -163,8 +168,12 @@ class _DestinationDetailsViewBodyState
                               Text('السعودية، الرياض'),
                             ],
                           ),
+                          SizedBox(height: 16.h,),
+
                           sectionTitle('الوصف'),
                           Text('يوجد هنا وصف مخصص للمكان ' * 13),
+                          SizedBox(height: 16.h,),
+
                           Row(
                             children: [
                               for (int i = 0; i < sections.length; i++)
@@ -232,6 +241,7 @@ class _DestinationDetailsViewBodyState
                                     }),
                               ),
                             ),
+                          SizedBox(height: 24.h,),
 
                         ],
                       ),

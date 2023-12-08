@@ -78,7 +78,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 if (nextPage < onBoardingList.length) {
                   liquidController.animateToPage(page: nextPage);
                 } else {
-                  GoRouter.of(context).push(AppRouter.kHomeLayOut);
+                  GoRouter.of(context).push(AppRouter.kLoginView);
                 }
               },
               child: CircleAvatar(
