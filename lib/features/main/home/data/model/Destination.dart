@@ -21,10 +21,10 @@ class Destination {
 
   static List<Destination> destinationsList = [
     Destination(
-        id: '0',
-        name: 'مسجد الصحابي جرير',
+        id: '2',
+        name: 'مسجد الداخله',
         description: '',
-        image: Assets.gareerMosque,
+        image: Assets.eldakhlaMosque,
         location: 'السعودية، الرياض',
         rating: 0,
         isOpen: true),
@@ -37,10 +37,10 @@ class Destination {
         rating: 0,
         isOpen: true),
     Destination(
-        id: '2',
-        name: 'مسجد الداخله',
+        id: '0',
+        name: 'مسجد الصحابي جرير',
         description: '',
-        image: Assets.eldakhlaMosque,
+        image: Assets.gareerMosque,
         location: 'السعودية، الرياض',
         rating: 0,
         isOpen: true),

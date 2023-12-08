@@ -55,10 +55,8 @@ class OnBoardingItem extends StatelessWidget {
                   maxLines: 3,
                   textAlign: TextAlign.justify,
                   overflow: TextOverflow.ellipsis,
-                  style: Styles.textStyle14.copyWith(
-                    color: ColorsData.greyscale100,
-                    height: 1.2
-                  ),
+                  style: Styles.textStyle14
+                      .copyWith(color: ColorsData.greyscale100, height: 1.2),
                 ),
                 SizedBox(
                   height: 200.h,
