@@ -17,4 +17,10 @@ class Assets{
   static const map='assets/images/map.png';
   static const gun='assets/images/gun.jpg';
 
+  static const warning = 'assets/images/warning-md-dark.svg';
+  static const password='assets/images/gun.jpg';
+  static const passwordEnable='assets/images/password-enable.svg';
+  static const passwordDisable='assets/images/password-disabled.svg';
+  static const facbookIcon='assets/images/facbook-icon.svg';
+
 }
