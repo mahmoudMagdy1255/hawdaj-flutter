@@ -234,10 +234,18 @@ class _DestinationDetailsViewBodyState
                                     physics: const NeverScrollableScrollPhysics(),
                                     padding: EdgeInsets.symmetric(horizontal: 20.w),
                                     itemBuilder: (BuildContext context, int index) {
-                                      return SizedBox(
+                                      return Container(
                                           height: (index % 2 + 1) * 100.0, // Varying heights
                                           width: (index % 2 + 1) * 100.0, // V
-                                          child: HomeGridItem(item: list[index]));
+                                          // child: HomeGridItem(item: list[index])
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(list[index].image),
+                                              fit: BoxFit.fill
+                                            ),
+                                            borderRadius: BorderRadius.circular(16.w)
+                                          ),
+                                      );
                                     }),
                               ),
                             ),
