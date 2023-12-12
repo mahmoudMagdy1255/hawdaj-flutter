@@ -57,7 +57,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.style15, // Choose the nav bar style with this property.
+          NavBarStyle.style1, // Choose the nav bar style with this property.
     );
   }
 

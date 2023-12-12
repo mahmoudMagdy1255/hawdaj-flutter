@@ -39,7 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         children: [
           InkWell(
             onTap: () {
-              GoRouter.of(context).push(AppRouter.kDestinationDetails);
+              GoRouter.of(context).push(AppRouter.kDestinationDetails,extra: list[currentIndex]);
             },
             child: Container(
               height: 880.h,
@@ -177,12 +177,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               padding: EdgeInsets.only(right: 20.0.w),
               child: Row(
                 children: [
-                  for (int i = 0; i < 10; i++)
+                  for (int i = 0; i < list.length; i++)
                     Padding(
                       padding: EdgeInsets.only(left: 16.0.w),
                       child:InkWell(
-                          onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
-                          child: DistanceItem()),
+                          onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails,extra: list[i]),
+                          child: DistanceItem(item: list[i],)),
                     ),
                 ],
               ),
@@ -204,7 +204,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               return Builder(
                 builder: (BuildContext context) {
                   return InkWell(
-                      onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
+                      // onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails,extra: ),
                       child: EventItem());
                 },
               );
@@ -247,7 +247,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails),
+                      onTap: ()=> GoRouter.of(context).push(AppRouter.kDestinationDetails,extra:list[index] ),
                       child: SizedBox(
                           height: (index % 3 + 1) * 100.0, // Varying heights
                           width: (index % 2 + 1) * 100.0, // V

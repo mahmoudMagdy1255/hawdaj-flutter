@@ -22,7 +22,7 @@ class OnBoardingItem extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Container(
-            color: Colors.black45,
+            color: Colors.black38,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -46,12 +46,12 @@ class OnBoardingItem extends StatelessWidget {
                   height: 120.h,
                 ),
                 Text(
-                  item.destination,
+                  item.cityName,
                   style: Styles.textStyle26
                       .copyWith(color: ColorsData.greyscale50),
                 ),
                 Text(
-                  item.location,
+                  item.cityDescription,
                   maxLines: 3,
                   textAlign: TextAlign.justify,
                   overflow: TextOverflow.ellipsis,

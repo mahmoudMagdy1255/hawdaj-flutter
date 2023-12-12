@@ -97,6 +97,8 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
+    - assets/images/cities/
+    - assets/images/places/
     - assets/images/animations/
   #   - images/a_dot_ham.jpeg
 

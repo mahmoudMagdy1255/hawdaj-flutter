@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hawdaj/features/auth/login/view/login_view.dart';
 import 'package:hawdaj/features/auth/onboarding/view/onboarding_view.dart';
 import 'package:hawdaj/features/main/destinationDetails/view/destination_view.dart';
+import 'package:hawdaj/features/main/home/data/model/Destination.dart';
 import 'package:hawdaj/features/main/home/view/home_view.dart';
 import 'package:hawdaj/features/main/layout/layout_view.dart';
 
@@ -34,7 +35,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kDestinationDetails,
-        builder: (context, state) => DestinationView(),
+        builder: (context, state) => DestinationView(item: state.extra as Destination),
       ),
     ],
   );

@@ -11,9 +11,10 @@ import '../../../home/data/model/Destination.dart';
 import '../../../home/view/widget/home_grid_item.dart';
 
 class DestinationDetailsViewBody extends StatefulWidget {
-  const DestinationDetailsViewBody({super.key});
+  DestinationDetailsViewBody({super.key,required this.item});
+Destination item;
 
-  @override
+@override
   State<DestinationDetailsViewBody> createState() =>
       _DestinationDetailsViewBodyState();
 }
@@ -29,7 +30,7 @@ class _DestinationDetailsViewBodyState
     return Stack(
       children: [
         Image.asset(
-          Assets.homeBackground,
+          widget.item.image,
           height: 350.h,
           width: double.infinity,
           fit: BoxFit.fill,
@@ -97,7 +98,7 @@ class _DestinationDetailsViewBodyState
                             children: [
                               Expanded(
                                   child: Text(
-                                'مسجد الصحابي جرير',
+                                    widget.item.name,
                                 style: Styles.textStyle20.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -165,13 +166,13 @@ class _DestinationDetailsViewBodyState
                               SizedBox(
                                 width: 4.w,
                               ),
-                              Text('السعودية، الرياض'),
+                              Text(widget.item.location),
                             ],
                           ),
                           SizedBox(height: 16.h,),
 
                           sectionTitle('الوصف'),
-                          Text('يوجد هنا وصف مخصص للمكان ' * 13),
+                          Text(widget.item.description),
                           SizedBox(height: 16.h,),
 
                           Row(
@@ -240,7 +241,7 @@ class _DestinationDetailsViewBodyState
                                           // child: HomeGridItem(item: list[index])
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
-                                              image: AssetImage(list[index].image),
+                                              image: AssetImage(widget.item.image),
                                               fit: BoxFit.fill
                                             ),
                                             borderRadius: BorderRadius.circular(16.w)

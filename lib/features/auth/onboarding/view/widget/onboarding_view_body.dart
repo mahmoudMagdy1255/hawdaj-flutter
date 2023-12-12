@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hawdaj/core/utils/app_router.dart';
+import 'package:hawdaj/core/utils/assets.dart';
 import 'package:hawdaj/core/utils/colors.dart';
 import 'package:hawdaj/core/utils/styles.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../model/onboardingModel.dart';
@@ -78,28 +80,34 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 if (nextPage < onBoardingList.length) {
                   liquidController.animateToPage(page: nextPage);
                 } else {
-                  GoRouter.of(context).push(AppRouter.kLoginView);
+                  GoRouter.of(context).push(AppRouter.kHomeLayOut);
                 }
               },
               child: CircleAvatar(
                 radius: 50.w,
                 backgroundColor: ColorsData.primary100.withOpacity(.3),
-                child: CircleAvatar(
-                  radius: 30.w,
-                  backgroundColor: ColorsData.myPrimaryColor[600],
-                  child: Visibility(
-                    visible: currentIndex < onBoardingList.length - 1,
-                    replacement: Text(
-                      'استمر',
-                      style: Styles.textStyle14
-                          .copyWith(color: ColorsData.greyscale50),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Lottie.asset(Assets.onboarding),
+                    CircleAvatar(
+                      radius: 22.w,
+                      backgroundColor: ColorsData.myPrimaryColor[600]!,
+                      child: Visibility(
+                        visible: currentIndex < onBoardingList.length - 1,
+                        replacement: Text(
+                          'استمر',
+                          style: Styles.textStyle14
+                              .copyWith(color: ColorsData.greyscale50),
+                        ),
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: ColorsData.greyscale50,
+                          size: 26.w,
+                        ),
+                      ),
                     ),
-                    child: Icon(
-                      Icons.arrow_forward,
-                      color: ColorsData.greyscale50,
-                      size: 30.w,
-                    ),
-                  ),
+                  ],
                 ),
               ),
             )),

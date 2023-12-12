@@ -5,46 +5,46 @@ import 'package:hawdaj/core/utils/colors.dart';
 class OnBoardingModel {
   String image;
   String title;
-  String destination;
-  String location;
+  String cityName;
+  String cityDescription;
   Color pageColor;
 
   OnBoardingModel({
     required this.image,
     required this.title,
-    required this.destination,
-    required this.location,
+    required this.cityName,
+    required this.cityDescription,
     required this.pageColor,
   });
 
   static List<OnBoardingModel> onBoardingList = [
     OnBoardingModel(
-      image: Assets.eldakhlaMosque,
+      image: Assets.ryad,
       title: 'يقدم السفر للمملكة مجموعة متنوعة من التجارب',
-      destination: 'مسجد الداخلة',
+      cityName: 'الرياض',
       pageColor: ColorsData.myPrimaryColor[100]!,
-      location: 'بُني المسجد على نمط الطراز النجدي من الطين والحجر، استخدم لسقفه خشب الأثل وسعف النخيل، تبلغ مساحته الإجمالية 666 م² وبسعة 500 مصليًا. ويتكون من فناء مكشوف مستطيل',
+      cityDescription: 'تعد الرياض عاصمة المملكة ومن أهم المدن السياحة. فهي مدينة حديثة متطورة تسير بخطى جريئة نحو المستقبل بينما تفتخر بتقاليد ماضيها العريق.'
     ),
     OnBoardingModel(
-      image: Assets.suleimanMosque,
+      image: Assets.dmam,
       title: 'استكشف المعالم التاريخية واستمتع بالمناظر الطبيعية',
-      destination: 'مسجد سليمان',
+      cityName: 'الدمام',
       pageColor: ColorsData.myPrimaryColor[100]!,
-      location: 'مسجد سليمان أو مسجد الوقف هو مسجد تاريخي في محافظة الطائف، غرب المملكة العربية السعودية، يعود تاريخ بناؤه إلى 300 عام.',
+      cityDescription: 'تُعتبر الدمام إحدى أكبر المدن في المملكة وتتميز بسحر مناظرها الصحراوية الخلابة ومعالمها التاريخية والثقافية كذلك. كما توفّر لزائريها الأماكن السياحية المتنوعة.'
     ),
     OnBoardingModel(
-      image: Assets.gareerMosque,
+      image: Assets.makah,
       title: 'قم بتجربة التراث الثقافي الغني للبلاد ',
-      destination: 'مسجد جرير',
+      cityName: 'مكه',
       pageColor: ColorsData.myPrimaryColor[100]!,
-      location: 'مسجد جرير بن عبد الله البجلي هو مسجد تاريخي في مركز حداد بني مالك جنوب محافظة الطائف، منطقة مكة المكرمة، غرب المملكة العربية السعودية.',
+      cityDescription: 'ُتعتبر مكة واحدة من أجمل المناطق السياحية على مستوى العالم، فهي تمتلك العديد من الإمكانيات والمقومات السياحية المختلفة',
     ),
     OnBoardingModel(
-      image: Assets.alfao,
+      image: Assets.abha,
       title: 'اكتشف أفضل الوجهات والتجارب في المملكة ',
-      destination: 'قرية الفاو',
+      cityName: 'ابها',
       pageColor: ColorsData.myPrimaryColor[100]!,
-      location: 'عاصمة مملكة كندة الأولى أحد الممالك العربية القديمة في نجد، ومن أهم المواقع الأثرية في شبه الجزيرة العربية؛ لأنها عبارة عن تجسيد متكامل',
+      cityDescription: 'ابتداءً من ركوب التلفريك ومشاهدة المناظر الخلابة إلى الجبل الأخضر واستكشاف أسرار الماضي  في أحد المتاحف في أبها، وزيارة أشهر المعالم.'
     ),
   ];
 }

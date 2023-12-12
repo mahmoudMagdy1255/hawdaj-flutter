@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../data/model/Destination.dart';
 
 class DistanceItem extends StatelessWidget {
-  const DistanceItem({super.key});
-
+   DistanceItem({super.key,required this.item});
+   Destination item;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -24,7 +25,7 @@ class DistanceItem extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              Assets.gareerMosque,
+              item.image,
               fit: BoxFit.fill,
             ),
             Positioned(
@@ -46,7 +47,7 @@ class DistanceItem extends StatelessWidget {
                         size: 12,
                       ),
                       Text(
-                        '2.3',
+                        item.rating.toString(),
                         style: Styles.textStyle12.copyWith(height: 1),
                       ),
                     ],
@@ -63,7 +64,7 @@ class DistanceItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'السلطان حسن',
+                      item.name,
                       style: Styles.textStyle16.copyWith(color: Colors.white),
                     ),
                     Row(
@@ -77,7 +78,7 @@ class DistanceItem extends StatelessWidget {
                           width: 4.w,
                         ),
                         Text(
-                          'السعودية، الرياض',
+                          item.location,
                           style: Styles.textStyle14.copyWith(color: Colors.white),
                         )
                       ],

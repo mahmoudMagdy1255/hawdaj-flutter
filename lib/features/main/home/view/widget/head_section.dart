@@ -20,7 +20,7 @@ class _HeadSectionState extends State<HeadSection> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            Assets.homeBackground,
+            Assets.makah,
             fit: BoxFit.fill,
           ),
           Padding(
